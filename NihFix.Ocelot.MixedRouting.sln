@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NihFix.Ocelot.MixedRouting"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NihFix.Ocelot.MixedRouting.Example", "NihFix.Ocelot.MixedRouting.Example\NihFix.Ocelot.MixedRouting.Example.csproj", "{4B9DA8A1-388F-45D6-BD3B-64ED00B22A89}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NihFix.Ocelot.MixedRouting.Tests", "NihFix.Ocelot.MixedRouting.Tests\NihFix.Ocelot.MixedRouting.Tests.csproj", "{F00C430A-7BEF-4FA8-B79C-C9D72571A513}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{4B9DA8A1-388F-45D6-BD3B-64ED00B22A89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B9DA8A1-388F-45D6-BD3B-64ED00B22A89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B9DA8A1-388F-45D6-BD3B-64ED00B22A89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F00C430A-7BEF-4FA8-B79C-C9D72571A513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F00C430A-7BEF-4FA8-B79C-C9D72571A513}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F00C430A-7BEF-4FA8-B79C-C9D72571A513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F00C430A-7BEF-4FA8-B79C-C9D72571A513}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -11,14 +11,13 @@ namespace NihFix.Ocelot.MixedRouting
 {
     public class MixedDownstreamRouteProvider : IDownstreamRouteProvider
     {
-        private readonly Lazy<Dictionary<string, IDownstreamRouteProvider>> _providers;
+        private IDownstreamRouteProvider _finder;
+        private IDownstreamRouteProvider _creator;
 
-        public MixedDownstreamRouteProvider(IServiceProvider provider)
+        public MixedDownstreamRouteProvider(IDownstreamRouteProvider finder, IDownstreamRouteProvider creator)
         {
-            _providers = new Lazy<Dictionary<string, IDownstreamRouteProvider>>(() => provider
-                .GetServices<IDownstreamRouteProvider>()
-                .ToDictionary(
-                    x => x.GetType().Name));
+            _finder = finder;
+            _creator = creator;
         }
 
         ///<inheritdoc/>
@@ -26,12 +25,11 @@ namespace NihFix.Ocelot.MixedRouting
             string upstreamHttpMethod,
             IInternalConfiguration configuration, string upstreamHost)
         {
-            var finder = _providers.Value[nameof(DownstreamRouteFinder)];
-            var creator = _providers.Value[nameof(DownstreamRouteCreator)];
-            var finderResult = finder.Get(upstreamUrlPath, upstreamQueryString, upstreamHttpMethod, configuration,
+            
+            var finderResult = _finder.Get(upstreamUrlPath, upstreamQueryString, upstreamHttpMethod, configuration,
                 upstreamHost);
             return finderResult.IsError
-                ? creator.Get(upstreamUrlPath, upstreamQueryString, upstreamHttpMethod, configuration, upstreamHost)
+                ? _creator.Get(upstreamUrlPath, upstreamQueryString, upstreamHttpMethod, configuration, upstreamHost)
                 : finderResult;
         }
     }
