@@ -31,8 +31,7 @@ namespace NihFix.Ocelot.MixedRouting
             {
                 _logger.LogInformation(
                     "Selected MixedDownstreamRouteProvider as DownstreamRouteProvider for this request");
-                return new MixedDownstreamRouteProvider(_providers[nameof(DownstreamRouteFinder)],
-                    _providers[nameof(DownstreamRouteCreator)]);
+                return _providers[nameof(MixedDownstreamRouteProvider)];
             }
             else if (isServiceDiscovery && !hasRoutesInConfig)
             {

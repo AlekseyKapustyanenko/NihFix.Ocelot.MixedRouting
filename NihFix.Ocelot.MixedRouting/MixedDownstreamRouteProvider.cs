@@ -11,13 +11,19 @@ namespace NihFix.Ocelot.MixedRouting
 {
     public class MixedDownstreamRouteProvider : IDownstreamRouteProvider
     {
-        private IDownstreamRouteProvider _finder;
-        private IDownstreamRouteProvider _creator;
+        private Lazy<Dictionary<string, IDownstreamRouteProvider>> _providers;
 
-        public MixedDownstreamRouteProvider(IDownstreamRouteProvider finder, IDownstreamRouteProvider creator)
+        public MixedDownstreamRouteProvider(IServiceProvider provider)
         {
-            _finder = finder;
-            _creator = creator;
+            _providers = new Lazy<Dictionary<string, IDownstreamRouteProvider>>(() =>
+                provider.GetServices<IDownstreamRouteProvider>()
+                    .ToDictionary(
+                        (x => x.GetType().Name)));
+        }
+
+        private MixedDownstreamRouteProvider(Dictionary<string, IDownstreamRouteProvider> providers)
+        {
+            _providers = new Lazy<Dictionary<string, IDownstreamRouteProvider>>(() => providers);
         }
 
         ///<inheritdoc/>
@@ -25,12 +31,18 @@ namespace NihFix.Ocelot.MixedRouting
             string upstreamHttpMethod,
             IInternalConfiguration configuration, string upstreamHost)
         {
-            
-            var finderResult = _finder.Get(upstreamUrlPath, upstreamQueryString, upstreamHttpMethod, configuration,
+            var finder = _providers.Value[nameof(DownstreamRouteFinder)];
+            var creator = _providers.Value[nameof(DownstreamRouteCreator)];
+            var finderResult = finder.Get(upstreamUrlPath, upstreamQueryString, upstreamHttpMethod, configuration,
                 upstreamHost);
             return finderResult.IsError
-                ? _creator.Get(upstreamUrlPath, upstreamQueryString, upstreamHttpMethod, configuration, upstreamHost)
+                ? creator.Get(upstreamUrlPath, upstreamQueryString, upstreamHttpMethod, configuration, upstreamHost)
                 : finderResult;
+        }
+
+        public static MixedDownstreamRouteProvider Create(Dictionary<string, IDownstreamRouteProvider> providers)
+        {
+            return new MixedDownstreamRouteProvider(providers);
         }
     }
 }
