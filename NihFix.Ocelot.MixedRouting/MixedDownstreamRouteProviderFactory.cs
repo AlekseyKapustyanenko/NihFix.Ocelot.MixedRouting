@@ -21,30 +21,50 @@ namespace NihFix.Ocelot.MixedRouting
                     x => x.GetType().Name);
         }
 
+        private MixedDownstreamRouteProviderFactory(Dictionary<string, IDownstreamRouteProvider> providers,
+            IOcelotLoggerFactory factory)
+        {
+            _logger = factory.CreateLogger<DownstreamRouteProviderFactory>();
+            _providers = providers;
+        }
+
         ///<inheritdoc/>
         public IDownstreamRouteProvider Get(IInternalConfiguration config)
         {
             var hasRoutesInConfig = config.ReRoutes.Any() && !config.ReRoutes.All(
                 x => string.IsNullOrEmpty(x.UpstreamTemplatePattern?.OriginalValue));
             var isServiceDiscovery = IsServiceDiscovery(config.ServiceProviderConfiguration);
-            if (hasRoutesInConfig && isServiceDiscovery)
+            if (hasRoutesInConfig && !isServiceDiscovery)
+            {
+                _logger.LogInformation("Selected DownstreamRouteCreator as DownstreamRouteProvider for this request");
+                return _providers[nameof(DownstreamRouteFinder)];
+            }else
+            if (isServiceDiscovery && !hasRoutesInConfig)
+            {
+                _logger.LogInformation("Selected DownstreamRouteCreator as DownstreamRouteProvider for this request");
+                return _providers[nameof(DownstreamRouteCreator)];
+            }
+           
+            else  if (hasRoutesInConfig && isServiceDiscovery)
             {
                 _logger.LogInformation(
                     "Selected MixedDownstreamRouteProvider as DownstreamRouteProvider for this request");
                 return _providers[nameof(MixedDownstreamRouteProvider)];
             }
-            else if (isServiceDiscovery && !hasRoutesInConfig)
-            {
-                _logger.LogInformation("Selected DownstreamRouteCreator as DownstreamRouteProvider for this request");
-                return _providers[nameof(DownstreamRouteCreator)];
-            }
 
-            _logger.LogInformation("Selected DownstreamRouteFinder as DownstreamRouteProvider for this request");
+            _logger.LogInformation("Selected DownstreamRouteCreator as DownstreamRouteProvider for this request");
 
-            return _providers[nameof(DownstreamRouteFinder)];
+            return _providers[nameof(DownstreamRouteCreator)];
         }
 
-        private bool IsServiceDiscovery(ServiceProviderConfiguration config) => !string.IsNullOrEmpty(config?.Host) &&
-            config != null && (config.Port > 0 && !string.IsNullOrEmpty(config.Type));
+        private bool IsServiceDiscovery(ServiceProviderConfiguration config) => config != null 
+            && !string.IsNullOrEmpty(config.Host) 
+            && (config.Port > 0 && !string.IsNullOrEmpty(config.Type));
+
+        public static MixedDownstreamRouteProviderFactory Create(Dictionary<string, IDownstreamRouteProvider> providers,
+            IOcelotLoggerFactory factory)
+        {
+            return new MixedDownstreamRouteProviderFactory(providers, factory);
+        }
     }
 }
