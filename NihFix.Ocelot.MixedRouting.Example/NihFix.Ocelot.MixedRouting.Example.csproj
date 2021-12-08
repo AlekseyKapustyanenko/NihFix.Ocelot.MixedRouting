@@ -8,4 +8,8 @@
       <PackageReference Include="Ocelot.Provider.Consul" Version="15.0.7" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\NihFix.Ocelot.MixedRouting\NihFix.Ocelot.MixedRouting.csproj" />
+    </ItemGroup>
+
 </Project>
