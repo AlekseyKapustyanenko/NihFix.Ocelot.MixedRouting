@@ -15,7 +15,7 @@ namespace NihFix.Ocelot.MixedRouting
 
         public MixedDownstreamRouteProviderFactory(IServiceProvider provider, IOcelotLoggerFactory factory)
         {
-            _logger = factory.CreateLogger<DownstreamRouteProviderFactory>();
+            _logger = factory.CreateLogger<MixedDownstreamRouteProviderFactory>();
             _providers = provider.GetServices<IDownstreamRouteProvider>()
                 .ToDictionary(
                     x => x.GetType().Name);
@@ -24,7 +24,7 @@ namespace NihFix.Ocelot.MixedRouting
         private MixedDownstreamRouteProviderFactory(Dictionary<string, IDownstreamRouteProvider> providers,
             IOcelotLoggerFactory factory)
         {
-            _logger = factory.CreateLogger<DownstreamRouteProviderFactory>();
+            _logger = factory.CreateLogger<MixedDownstreamRouteProviderFactory>();
             _providers = providers;
         }
 
