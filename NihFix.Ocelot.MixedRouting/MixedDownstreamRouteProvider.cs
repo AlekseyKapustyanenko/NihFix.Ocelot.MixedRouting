@@ -33,11 +33,29 @@ namespace NihFix.Ocelot.MixedRouting
         {
             var finder = _providers.Value[nameof(DownstreamRouteFinder)];
             var creator = _providers.Value[nameof(DownstreamRouteCreator)];
-            var finderResult = finder.Get(upstreamUrlPath, upstreamQueryString, upstreamHttpMethod, configuration,
+            var finderResult = finder.Get(
+                upstreamUrlPath,
+                upstreamQueryString,
+                upstreamHttpMethod,
+                configuration,
                 upstreamHost);
-            return finderResult.IsError
-                ? creator.Get(upstreamUrlPath, upstreamQueryString, upstreamHttpMethod, configuration, upstreamHost)
-                : finderResult;
+            if (!finderResult.IsError)
+            {
+                return finderResult;
+            }
+            var creatorResult = creator.Get(
+                upstreamUrlPath,
+                upstreamQueryString,
+                upstreamHttpMethod,
+                configuration,
+                upstreamHost);
+            if (creatorResult.IsError)
+            {
+                creatorResult.Errors.AddRange(finderResult.Errors);
+            }
+
+            return creatorResult;
+
         }
 
         public static MixedDownstreamRouteProvider Create(Dictionary<string, IDownstreamRouteProvider> providers)
