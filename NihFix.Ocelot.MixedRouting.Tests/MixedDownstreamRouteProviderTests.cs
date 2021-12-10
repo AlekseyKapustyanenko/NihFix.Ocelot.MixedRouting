@@ -104,5 +104,29 @@ namespace NihFix.Ocelot.MixedRouting.Tests
                 Arg.Any<IInternalConfiguration>(),
                 Arg.Any<string>());
         }
+
+        [Fact]
+        public async Task Get_NotFoundRouteEveryWhere_ShouldHaveBothErrorsInResponse()
+        {
+            _finderRouteProvider.Get(Arg.Any<string>(),
+                    Arg.Any<string>(),
+                    Arg.Any<string>(),
+                    Arg.Any<IInternalConfiguration>(),
+                    Arg.Any<string>())
+                .Returns(_errorResponse);
+            _creatorRouteProvider.Get(Arg.Any<string>(),
+                    Arg.Any<string>(),
+                    Arg.Any<string>(),
+                    Arg.Any<IInternalConfiguration>(),
+                    Arg.Any<string>())
+                .Returns(_errorResponse);
+            var result = _mixedRouteProvider.Get(
+                string.Empty,
+                string.Empty,
+                string.Empty,
+                _configuration,
+                string.Empty);
+            Assert.Equal(2, result.Errors.Count);
+        }
     }
 }
