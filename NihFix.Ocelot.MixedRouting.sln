@@ -4,7 +4,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NihFix.Ocelot.MixedRouting"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NihFix.Ocelot.MixedRouting.Tests", "NihFix.Ocelot.MixedRouting.Tests\NihFix.Ocelot.MixedRouting.Tests.csproj", "{F00C430A-7BEF-4FA8-B79C-C9D72571A513}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NihFix.Ocelot.MixedRouting.Example.ApiGateway", "NihFix.Ocelot.MixedRouting.Example.ApiGateway\NihFix.Ocelot.MixedRouting.Example.ApiGateway.csproj", "{3D79A7C4-6FDD-474D-AA34-BFBFA79459D4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example", "Example", "{6FD4CEE8-F9D7-4579-B07D-76732A6EB061}"
+ProjectSection(SolutionItems) = preProject
+	Example\tips.txt = Example\tips.txt
+EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RepoData", "RepoData", "{926A5C07-8715-4D25-9C71-B3E98DFAB85B}"
+ProjectSection(SolutionItems) = preProject
+	global.json = global.json
+	README.md = README.md
+	.gitignore = .gitignore
+EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NihFix.Ocelot.MixedRouting.Example.ApiGateway", "Example\NihFix.Ocelot.MixedRouting.Example.ApiGateway\NihFix.Ocelot.MixedRouting.Example.ApiGateway.csproj", "{92BA0224-284D-4F0C-90DC-CA6F3347A1F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NihFix.Ocelot.MixedRouting.Example.ApiFromDiscovery", "Example\NihFix.Ocelot.MixedRouting.Example.ApiFromDiscovery\NihFix.Ocelot.MixedRouting.Example.ApiFromDiscovery.csproj", "{BBB7C0FA-D5E1-468D-AC0B-0D4F45900D53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NihFix.Ocelot.MixedRouting.Example.ApiFromConfig", "Example\NihFix.Ocelot.MixedRouting.Example.ApiFromConfig\NihFix.Ocelot.MixedRouting.Example.ApiFromConfig.csproj", "{0FA7AACF-3777-4DFB-8A3D-57727B7C30AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,9 +36,22 @@ Global
 		{F00C430A-7BEF-4FA8-B79C-C9D72571A513}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F00C430A-7BEF-4FA8-B79C-C9D72571A513}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F00C430A-7BEF-4FA8-B79C-C9D72571A513}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3D79A7C4-6FDD-474D-AA34-BFBFA79459D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D79A7C4-6FDD-474D-AA34-BFBFA79459D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D79A7C4-6FDD-474D-AA34-BFBFA79459D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D79A7C4-6FDD-474D-AA34-BFBFA79459D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92BA0224-284D-4F0C-90DC-CA6F3347A1F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92BA0224-284D-4F0C-90DC-CA6F3347A1F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92BA0224-284D-4F0C-90DC-CA6F3347A1F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92BA0224-284D-4F0C-90DC-CA6F3347A1F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBB7C0FA-D5E1-468D-AC0B-0D4F45900D53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBB7C0FA-D5E1-468D-AC0B-0D4F45900D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBB7C0FA-D5E1-468D-AC0B-0D4F45900D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBB7C0FA-D5E1-468D-AC0B-0D4F45900D53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FA7AACF-3777-4DFB-8A3D-57727B7C30AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FA7AACF-3777-4DFB-8A3D-57727B7C30AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FA7AACF-3777-4DFB-8A3D-57727B7C30AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FA7AACF-3777-4DFB-8A3D-57727B7C30AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{92BA0224-284D-4F0C-90DC-CA6F3347A1F4} = {6FD4CEE8-F9D7-4579-B07D-76732A6EB061}
+		{BBB7C0FA-D5E1-468D-AC0B-0D4F45900D53} = {6FD4CEE8-F9D7-4579-B07D-76732A6EB061}
+		{0FA7AACF-3777-4DFB-8A3D-57727B7C30AF} = {6FD4CEE8-F9D7-4579-B07D-76732A6EB061}
 	EndGlobalSection
 EndGlobal

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace NihFix.Ocelot.MixedRouting.Example
+namespace NihFix.Ocelot.MixedRouting.Example.ApiFromDiscovery
 {
     public class Program
     {
@@ -18,6 +19,7 @@ namespace NihFix.Ocelot.MixedRouting.Example
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); })
+                .ConfigureServices(s=>s.AddHostedService<ConsulHostedService>());
     }
 }
