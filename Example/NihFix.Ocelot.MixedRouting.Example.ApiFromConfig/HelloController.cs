@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace NihFix.Ocelot.MixedRouting.Example.ApiGateway
+namespace NihFix.Ocelot.MixedRouting.Example.ApiFromConfig
 {
     [ApiController]
     [Route("api/[controller]")]

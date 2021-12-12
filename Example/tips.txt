@@ -1,2 +1,2 @@
 ﻿consul run command:
-docker run -p8500:8500 -d --name=dev-consul -e CONSUL_BIND_INTERFACE=eth0 consul agent -dev -ui -client="0.0.0.0"
+docker run --net nihfix-mixed-routing -p8500:8500 -d --name=consul-service -e CONSUL_BIND_INTERFACE=eth0 consul agent -dev -ui -client="0.0.0.0"
