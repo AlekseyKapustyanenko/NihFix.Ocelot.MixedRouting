@@ -1,0 +1,22 @@
+﻿<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="config-api" type="docker-deploy" factoryName="docker-image" server-name="Docker">
+    <deployment type="docker-image">
+      <settings>
+        <option name="imageTag" value="config-api:latest" />
+        <option name="command" value="" />
+        <option name="containerName" value="config-api" />
+        <option name="entrypoint" value="" />
+        <option name="portBindings">
+          <list>
+            <DockerPortBindingImpl>
+              <option name="containerPort" value="80" />
+              <option name="hostPort" value="5002" />
+            </DockerPortBindingImpl>
+          </list>
+        </option>
+        <option name="commandLineOptions" value="--net nihfix-mixed-routing" />
+      </settings>
+    </deployment>
+    <method v="2" />
+  </configuration>
+</component>
