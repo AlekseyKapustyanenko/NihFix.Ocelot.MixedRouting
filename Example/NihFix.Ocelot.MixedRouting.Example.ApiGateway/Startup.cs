@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Ocelot.DependencyInjection;
+using Ocelot.Provider.Consul;
 
 namespace NihFix.Ocelot.MixedRouting.Example.ApiGateway
 {
@@ -19,6 +20,7 @@ namespace NihFix.Ocelot.MixedRouting.Example.ApiGateway
         {
             services
                 .AddOcelot()
+                .AddConsul()
                 .AddMixedRouting();
         }
 

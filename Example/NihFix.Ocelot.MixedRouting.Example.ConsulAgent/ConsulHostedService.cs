@@ -9,7 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace NihFix.Ocelot.MixedRouting.Example.ApiFromDiscovery
+namespace NihFix.Ocelot.MixedRouting.Example.ConsulAgent
 {
     public class ConsulHostedService : IHostedService
     {

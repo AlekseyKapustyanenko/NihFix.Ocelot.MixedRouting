@@ -1,4 +1,4 @@
-﻿namespace NihFix.Ocelot.MixedRouting.Example.ApiFromDiscovery
+﻿namespace NihFix.Ocelot.MixedRouting.Example.ConsulAgent
 {
     /// <summary>
     /// Config for Consul ServiceDiscovery.

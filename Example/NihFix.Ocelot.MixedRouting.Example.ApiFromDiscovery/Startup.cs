@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Serialization;
+using NihFix.Ocelot.MixedRouting.Example.ConsulAgent;
 
 namespace NihFix.Ocelot.MixedRouting.Example.ApiFromDiscovery
 {

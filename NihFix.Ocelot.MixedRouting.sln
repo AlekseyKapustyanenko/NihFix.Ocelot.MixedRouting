@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NihFix.Ocelot.MixedRouting.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NihFix.Ocelot.MixedRouting.Example.ApiFromConfig", "Example\NihFix.Ocelot.MixedRouting.Example.ApiFromConfig\NihFix.Ocelot.MixedRouting.Example.ApiFromConfig.csproj", "{0FA7AACF-3777-4DFB-8A3D-57727B7C30AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NihFix.Ocelot.MixedRouting.Example.ConsulAgent", "Example\NihFix.Ocelot.MixedRouting.Example.ConsulAgent\NihFix.Ocelot.MixedRouting.Example.ConsulAgent.csproj", "{225501E7-2D6B-43CE-907D-91E42B799188}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,10 +50,15 @@ Global
 		{0FA7AACF-3777-4DFB-8A3D-57727B7C30AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FA7AACF-3777-4DFB-8A3D-57727B7C30AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FA7AACF-3777-4DFB-8A3D-57727B7C30AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{225501E7-2D6B-43CE-907D-91E42B799188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{225501E7-2D6B-43CE-907D-91E42B799188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{225501E7-2D6B-43CE-907D-91E42B799188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{225501E7-2D6B-43CE-907D-91E42B799188}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{92BA0224-284D-4F0C-90DC-CA6F3347A1F4} = {6FD4CEE8-F9D7-4579-B07D-76732A6EB061}
 		{BBB7C0FA-D5E1-468D-AC0B-0D4F45900D53} = {6FD4CEE8-F9D7-4579-B07D-76732A6EB061}
 		{0FA7AACF-3777-4DFB-8A3D-57727B7C30AF} = {6FD4CEE8-F9D7-4579-B07D-76732A6EB061}
+		{225501E7-2D6B-43CE-907D-91E42B799188} = {6FD4CEE8-F9D7-4579-B07D-76732A6EB061}
 	EndGlobalSection
 EndGlobal

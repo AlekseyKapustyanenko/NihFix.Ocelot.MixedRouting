@@ -4,4 +4,8 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\NihFix.Ocelot.MixedRouting.Example.ConsulAgent\NihFix.Ocelot.MixedRouting.Example.ConsulAgent.csproj" />
+    </ItemGroup>
+
 </Project>

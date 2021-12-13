@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using NihFix.Ocelot.MixedRouting.Example.ConsulAgent;
 
 namespace NihFix.Ocelot.MixedRouting.Example.ApiFromDiscovery
 {
