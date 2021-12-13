@@ -1,0 +1,19 @@
+﻿{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/{all}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api-from-config/{all}",
+      "ServiceName": "config-api"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "api-gateway",
+    "ServiceDiscoveryProvider": {
+      "Scheme": "http",
+      "Host": "consul-service",
+      "Port": 8500,
+      "Type": "Consul"
+    }
+  }
+}

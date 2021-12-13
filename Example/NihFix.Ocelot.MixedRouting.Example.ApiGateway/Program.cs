@@ -18,6 +18,11 @@ namespace NihFix.Ocelot.MixedRouting.Example.ApiGateway
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); })
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    config
+                        .AddJsonFile("ocelot.json");
+                });
     }
 }

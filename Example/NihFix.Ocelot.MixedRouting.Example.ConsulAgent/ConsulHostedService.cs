@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 using Consul;
@@ -13,22 +15,22 @@ namespace NihFix.Ocelot.MixedRouting.Example.ConsulAgent
 {
     public class ConsulHostedService : IHostedService
     {
-        private Task _executingTask;
         private CancellationTokenSource _cts;
         private readonly IConsulClient _consulClient;
         private readonly IOptions<ConsulConfig> _consulConfig;
         private readonly ILogger<ConsulHostedService> _logger;
         private readonly IServer _server;
-        private string _registrationID;
+        private string _registrationId;
 
-        public ConsulHostedService(IConsulClient consulClient, IOptions<ConsulConfig> consulConfig, ILogger<ConsulHostedService> logger, IServer server)
+        public ConsulHostedService(IConsulClient consulClient, IOptions<ConsulConfig> consulConfig,
+            ILogger<ConsulHostedService> logger, IServer server)
         {
             _server = server;
             _logger = logger;
             _consulConfig = consulConfig;
             _consulClient = consulClient;
-
         }
+
         public async Task StartAsync(CancellationToken cancellationToken)
         {
             // Create a linked token so we can trigger cancellation outside of this token's cancellation
@@ -37,15 +39,15 @@ namespace NihFix.Ocelot.MixedRouting.Example.ConsulAgent
             var features = _server.Features;
             var addresses = features.Get<IServerAddressesFeature>();
             var address = addresses.Addresses.First();
-
+            
             var uri = new Uri(address);
-            _registrationID = $"{_consulConfig.Value.ServiceName}-{uri.Port}";
+            _registrationId = $"{_consulConfig.Value.ServiceName}-{uri.Port}";
 
             var registration = new AgentServiceRegistration()
             {
-                ID = _registrationID,
+                ID = _registrationId,
                 Name = _consulConfig.Value.ServiceName,
-                Address = $"{uri.Scheme}://{uri.Host}",
+                Address = _consulConfig.Value.ServiceName,
                 Port = uri.Port,
             };
 
@@ -60,7 +62,7 @@ namespace NihFix.Ocelot.MixedRouting.Example.ConsulAgent
             _logger.LogInformation("Deregistering from Consul");
             try
             {
-                await _consulClient.Agent.ServiceDeregister(_registrationID, cancellationToken);
+                await _consulClient.Agent.ServiceDeregister(_registrationId, cancellationToken);
             }
             catch (Exception ex)
             {

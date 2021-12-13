@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Ocelot.DependencyInjection;
+using Ocelot.Middleware;
 using Ocelot.Provider.Consul;
 
 namespace NihFix.Ocelot.MixedRouting.Example.ApiGateway
@@ -32,12 +33,8 @@ namespace NihFix.Ocelot.MixedRouting.Example.ApiGateway
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseRouting();
+            app.UseOcelot().Wait();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGet("/", async context => { await context.Response.WriteAsync("Hello World!"); });
-            });
         }
     }
 }

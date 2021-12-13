@@ -1,11 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Ocelot" Version="[11.0.0,14.0.0)" />
+      <PackageReference Include="Ocelot" Version="[13.8.0, 16.0.0)" />
     </ItemGroup>
 
 </Project>

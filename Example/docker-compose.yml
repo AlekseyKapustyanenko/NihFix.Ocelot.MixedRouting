@@ -1,0 +1,44 @@
+﻿services:  
+  api-gateway:    
+    build:
+      context: ./../
+      dockerfile: ./Example/NihFix.Ocelot.MixedRouting.Example.ApiGateway/Dockerfile
+    ports:
+      - 5000:80
+    networks:
+      - nihfix-mixed-routing
+    depends_on:
+      - consul-service
+  config-api:
+    build:
+      context: ./../
+      dockerfile: ./Example/NihFix.Ocelot.MixedRouting.Example.ApiFromConfig/Dockerfile
+    ports:
+      - 5004:80
+    networks:
+      - nihfix-mixed-routing
+    depends_on:
+      - consul-service
+  discovery-api:
+    build:
+      context: ./../
+      dockerfile: ./Example/NihFix.Ocelot.MixedRouting.Example.ApiFromDiscovery/Dockerfile
+    ports:
+      - 5002:80
+    networks:
+      - nihfix-mixed-routing
+    depends_on:
+      - consul-service
+  consul-service:
+    image: consul
+    networks:
+      - nihfix-mixed-routing
+    ports:
+      - 8500:8500
+    environment:
+      - CONSUL_BIND_INTERFACE=eth0
+    command: agent -dev -ui -client="0.0.0.0"
+networks:
+  nihfix-mixed-routing:
+    driver: bridge
+      

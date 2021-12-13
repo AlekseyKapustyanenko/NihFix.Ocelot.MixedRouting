@@ -7,6 +7,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example", "Example", "{6FD4CEE8-F9D7-4579-B07D-76732A6EB061}"
 ProjectSection(SolutionItems) = preProject
 	Example\tips.txt = Example\tips.txt
+	Example\docker-compose.yml = Example\docker-compose.yml
 EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RepoData", "RepoData", "{926A5C07-8715-4D25-9C71-B3E98DFAB85B}"
