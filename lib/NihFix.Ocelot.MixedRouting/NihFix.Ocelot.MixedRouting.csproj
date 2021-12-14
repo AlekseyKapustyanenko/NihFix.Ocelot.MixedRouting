@@ -2,6 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        <PackageVersion>15.0.7-rc3</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>

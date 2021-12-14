@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Provider.Consul;
+using NihFix.Ocelot.MixedRouting;
 
 namespace NihFix.Ocelot.MixedRouting.Example.ApiGateway
 {

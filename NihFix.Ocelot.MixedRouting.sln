@@ -1,9 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NihFix.Ocelot.MixedRouting", "NihFix.Ocelot.MixedRouting\NihFix.Ocelot.MixedRouting.csproj", "{2693C3FA-A8BE-4D87-BE21-E49AC77CFD49}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NihFix.Ocelot.MixedRouting.Tests", "NihFix.Ocelot.MixedRouting.Tests\NihFix.Ocelot.MixedRouting.Tests.csproj", "{F00C430A-7BEF-4FA8-B79C-C9D72571A513}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example", "Example", "{6FD4CEE8-F9D7-4579-B07D-76732A6EB061}"
 ProjectSection(SolutionItems) = preProject
 	Example\tips.txt = Example\tips.txt
@@ -25,20 +21,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NihFix.Ocelot.MixedRouting.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NihFix.Ocelot.MixedRouting.Example.ConsulAgent", "Example\NihFix.Ocelot.MixedRouting.Example.ConsulAgent\NihFix.Ocelot.MixedRouting.Example.ConsulAgent.csproj", "{225501E7-2D6B-43CE-907D-91E42B799188}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{31F63F0F-F4F1-4499-B88F-4D7878DF1059}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NihFix.Ocelot.MixedRouting", "lib\NihFix.Ocelot.MixedRouting\NihFix.Ocelot.MixedRouting.csproj", "{E0EDAD4F-4746-4273-9DA1-895FE7055E2F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{26D0BB13-F320-4714-8F43-C29444E0D851}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NihFix.Ocelot.MixedRouting.Tests", "tests\NihFix.Ocelot.MixedRouting.Tests\NihFix.Ocelot.MixedRouting.Tests.csproj", "{A0277AE6-84B2-4F60-921E-0FE25854C59D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2693C3FA-A8BE-4D87-BE21-E49AC77CFD49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2693C3FA-A8BE-4D87-BE21-E49AC77CFD49}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2693C3FA-A8BE-4D87-BE21-E49AC77CFD49}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2693C3FA-A8BE-4D87-BE21-E49AC77CFD49}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F00C430A-7BEF-4FA8-B79C-C9D72571A513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F00C430A-7BEF-4FA8-B79C-C9D72571A513}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F00C430A-7BEF-4FA8-B79C-C9D72571A513}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F00C430A-7BEF-4FA8-B79C-C9D72571A513}.Release|Any CPU.Build.0 = Release|Any CPU
 		{92BA0224-284D-4F0C-90DC-CA6F3347A1F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{92BA0224-284D-4F0C-90DC-CA6F3347A1F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92BA0224-284D-4F0C-90DC-CA6F3347A1F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -55,11 +51,21 @@ Global
 		{225501E7-2D6B-43CE-907D-91E42B799188}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{225501E7-2D6B-43CE-907D-91E42B799188}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{225501E7-2D6B-43CE-907D-91E42B799188}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0EDAD4F-4746-4273-9DA1-895FE7055E2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0EDAD4F-4746-4273-9DA1-895FE7055E2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0EDAD4F-4746-4273-9DA1-895FE7055E2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0EDAD4F-4746-4273-9DA1-895FE7055E2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0277AE6-84B2-4F60-921E-0FE25854C59D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0277AE6-84B2-4F60-921E-0FE25854C59D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0277AE6-84B2-4F60-921E-0FE25854C59D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0277AE6-84B2-4F60-921E-0FE25854C59D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{92BA0224-284D-4F0C-90DC-CA6F3347A1F4} = {6FD4CEE8-F9D7-4579-B07D-76732A6EB061}
 		{BBB7C0FA-D5E1-468D-AC0B-0D4F45900D53} = {6FD4CEE8-F9D7-4579-B07D-76732A6EB061}
 		{0FA7AACF-3777-4DFB-8A3D-57727B7C30AF} = {6FD4CEE8-F9D7-4579-B07D-76732A6EB061}
 		{225501E7-2D6B-43CE-907D-91E42B799188} = {6FD4CEE8-F9D7-4579-B07D-76732A6EB061}
+		{E0EDAD4F-4746-4273-9DA1-895FE7055E2F} = {31F63F0F-F4F1-4499-B88F-4D7878DF1059}
+		{A0277AE6-84B2-4F60-921E-0FE25854C59D} = {26D0BB13-F320-4714-8F43-C29444E0D851}
 	EndGlobalSection
 EndGlobal

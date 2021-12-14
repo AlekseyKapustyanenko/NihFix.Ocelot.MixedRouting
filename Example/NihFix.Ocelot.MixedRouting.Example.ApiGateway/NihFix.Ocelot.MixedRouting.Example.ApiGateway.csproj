@@ -2,15 +2,23 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        <PackageId>$(AssemblyName)</PackageId>        
+        <FileVersion>15.0.7-rc3</FileVersion>       
+        <Title>Ocelot mixed routing extension</Title>
+        <Authors>alexeykap</Authors>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/alexeykap/NihFix.Ocelot.MixedRouting/</PackageProjectUrl>
+        <Description>This is extension for Ocelot API gateway which allow combine routes rules defined in config and dynamic routing with service discovery.</Description>
+        <PackageReleaseNotes>Supporrt from 13.8.0 to 15.0.7 Ocelot versions.</PackageReleaseNotes>
+        <Copyright>Copyright NihFix 2021</Copyright>
+        <PackageTags>Ocelot; Mixed Routing; Dynamic Routing; Combine Routing; Routes</PackageTags>
+        <RestorePackagesPath>packages</RestorePackagesPath>
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="NihFix.Ocelot.MixedRouting" Version="15.0.7-rc2" />
       <PackageReference Include="Ocelot" Version="14.0.0" />
       <PackageReference Include="Ocelot.Provider.Consul" Version="14.0.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\..\NihFix.Ocelot.MixedRouting\NihFix.Ocelot.MixedRouting.csproj" />
     </ItemGroup>
 
 </Project>
