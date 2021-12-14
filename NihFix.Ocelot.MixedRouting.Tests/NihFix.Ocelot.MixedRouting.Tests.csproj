@@ -15,7 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\lib\NihFix.Ocelot.MixedRouting\NihFix.Ocelot.MixedRouting.csproj" />
+      <ProjectReference Include="..\NihFix.Ocelot.MixedRouting\NihFix.Ocelot.MixedRouting.csproj" />
     </ItemGroup>
 
 </Project>
