@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>NihFix.Ocelot.MixedRouting</id>
+    <version>15.0.7-rc1</version>
+    <title>Ocelot mixed routing extension</title>
+    <authors>alexeykap</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <!-- <icon>icon.png</icon> -->
+    <projectUrl>https://github.com/alexeykap/NihFix.Ocelot.MixedRouting/</projectUrl>
+    <description>This is extension for Ocelot API gateway which allow combine routes rules defined in config and dynamic routing with service discovery.</description>
+    <releaseNotes>Supporrt from 13.8.0 to 15.0.7 Ocelot versions. </releaseNotes>
+    <copyright>Copyright NihFix 2021</copyright>
+    <tags>Ocelot MixedRouting DynamicRouting CombineRouting Routes</tags>
+    <dependencies>
+      <group targetFramework="netcoreapp3.1">
+        <dependency id="Ocelot" version="[13.8.0,16.0.0)"/>
+      </group>
+    </dependencies>
+  </metadata>
+</package>
