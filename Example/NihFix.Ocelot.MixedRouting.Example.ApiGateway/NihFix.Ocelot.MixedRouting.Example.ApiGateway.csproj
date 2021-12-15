@@ -5,9 +5,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="NihFix.Ocelot.MixedRouting" Version="15.0.7-rc4" />
-      <PackageReference Include="Ocelot" Version="15.0.7" />
-      <PackageReference Include="Ocelot.Provider.Consul" Version="14.0.0" />
+      <PackageReference Include="Ocelot" Version="14.0.0" />
+      <PackageReference Include="Ocelot.Provider.Consul" Version="13.8.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\NihFix.Ocelot.MixedRouting\NihFix.Ocelot.MixedRouting.csproj" />
     </ItemGroup>
 
 </Project>

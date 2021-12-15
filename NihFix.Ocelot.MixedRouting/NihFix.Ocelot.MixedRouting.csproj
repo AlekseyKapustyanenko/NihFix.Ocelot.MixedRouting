@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <PackageId>$(AssemblyName)</PackageId>      
+        <PackageId>$(AssemblyName)</PackageId>
         <Title>Ocelot mixed routing extension</Title>
         <Authors>alexeykap</Authors>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -16,7 +16,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Ocelot" Version="[13.8.0, 16.0.0)" />
+        <PackageReference Include="Ocelot" Version="[13.8.0,14.0.10)" />
     </ItemGroup>
 
 </Project>

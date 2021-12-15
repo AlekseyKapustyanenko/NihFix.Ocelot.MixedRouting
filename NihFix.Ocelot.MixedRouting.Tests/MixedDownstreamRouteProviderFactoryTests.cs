@@ -40,7 +40,7 @@ namespace NihFix.Ocelot.MixedRouting.Tests
         {
             _configuration.ReRoutes.Returns(new List<ReRoute>());
             _configuration.ServiceProviderConfiguration.Returns(new ServiceProviderConfiguration("ServiceDiscoveryType",
-                String.Empty, "host", 1, String.Empty, string.Empty, 0));
+                String.Empty, 1, String.Empty, string.Empty, 0));
 
             var provider = _mixedProviderFactory.Get(_configuration);
 
@@ -65,7 +65,7 @@ namespace NihFix.Ocelot.MixedRouting.Tests
         public async Task Get_BothConfiguration_ShouldGetMixedProvider()
         {
             _configuration.ServiceProviderConfiguration.Returns(new ServiceProviderConfiguration("ServiceDiscoveryType",
-                String.Empty, "host", 1, String.Empty, string.Empty, 0));
+                "Host", 1, String.Empty, string.Empty, 0));
             _configuration.ReRoutes.Returns(new List<ReRoute>
             {
                 new ReRoute(new List<DownstreamReRoute>(), new List<AggregateReRouteConfig>(), new List<HttpMethod>(),

@@ -37,7 +37,7 @@ namespace NihFix.Ocelot.MixedRouting
                 upstreamUrlPath,
                 upstreamQueryString,
                 upstreamHttpMethod,
-                configuration,
+                new FinderNormalizedInternalConfiguration(configuration),
                 upstreamHost);
             if (!finderResult.IsError)
             {
@@ -47,7 +47,7 @@ namespace NihFix.Ocelot.MixedRouting
                 upstreamUrlPath,
                 upstreamQueryString,
                 upstreamHttpMethod,
-                configuration,
+                new CreatorNormalizedInternalConfiguration(configuration),
                 upstreamHost);
             if (creatorResult.IsError)
             {

@@ -5,6 +5,17 @@
       "DownstreamScheme": "http",
       "UpstreamPathTemplate": "/api-from-config/{all}",
       "ServiceName": "config-api"
+    },
+    {
+      "DownstreamPathTemplate": "/{all}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api-from-config-standard/{all}",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "config-api",
+          "Port": 80
+        }
+      ]
     }
   ],
   "GlobalConfiguration": {

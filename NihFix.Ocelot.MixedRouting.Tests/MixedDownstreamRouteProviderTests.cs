@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 using NSubstitute.Core.Arguments;
 using Ocelot.Configuration;
+using Ocelot.Configuration.File;
 using Ocelot.DownstreamRouteFinder;
 using Ocelot.DownstreamRouteFinder.Finder;
+using Ocelot.DownstreamRouteFinder.UrlMatcher;
 using Ocelot.Errors;
 using Ocelot.Responses;
+using Ocelot.Values;
 using Xunit;
 
 namespace NihFix.Ocelot.MixedRouting.Tests
@@ -33,8 +37,15 @@ namespace NihFix.Ocelot.MixedRouting.Tests
                     {nameof(DownstreamRouteCreator), _creatorRouteProvider}
                 });
             _configuration = Substitute.For<IInternalConfiguration>();
-            _okResponse = new OkResponse<DownstreamRoute>(new DownstreamRoute());
-            _errorResponse = new ErrorResponse<DownstreamRoute>((Error)null);
+            _okResponse = new OkResponse<DownstreamRoute>(
+                new DownstreamRoute(new List<PlaceholderNameAndValue>(),
+                    new ReRoute(new List<DownstreamReRoute>(),
+                        new List<AggregateReRouteConfig>(),
+                        new List<HttpMethod>(),
+                        new UpstreamPathTemplate("template", 0, true, "originalValue"),
+                        "host",
+                        "aggregator")));
+            _errorResponse = new ErrorResponse<DownstreamRoute>((Error) null);
         }
 
         [Fact]
@@ -92,17 +103,17 @@ namespace NihFix.Ocelot.MixedRouting.Tests
             _finderRouteProvider
                 .Received(1)
                 .Get(Arg.Any<string>(),
-                Arg.Any<string>(),
-                Arg.Any<string>(),
-                Arg.Any<IInternalConfiguration>(),
-                Arg.Any<string>());
+                    Arg.Any<string>(),
+                    Arg.Any<string>(),
+                    Arg.Any<IInternalConfiguration>(),
+                    Arg.Any<string>());
             _creatorRouteProvider
                 .Received(1)
                 .Get(Arg.Any<string>(),
-                Arg.Any<string>(),
-                Arg.Any<string>(),
-                Arg.Any<IInternalConfiguration>(),
-                Arg.Any<string>());
+                    Arg.Any<string>(),
+                    Arg.Any<string>(),
+                    Arg.Any<IInternalConfiguration>(),
+                    Arg.Any<string>());
         }
 
         [Fact]
